@@ -1,0 +1,20 @@
+import modal
+from docling_serve.app import create_app
+
+app = modal.App("docling-serve-modal")
+
+image = modal.Image.from_registry("quay.io/docling-project/docling-serve-cu128:v1.7.0")
+
+
+@app.function(
+    image=image,
+    secrets=[modal.Secret.from_name("DOCLING_SERVE_API_KEY")],
+    timeout=7200,
+    gpu="L40S",
+    scaledown_window=60,
+)
+@modal.concurrent(max_inputs=32)
+@modal.asgi_app()
+def docling_serve_fastapi_app_with_lifespan():
+    web_app = create_app()
+    return web_app
