@@ -14,8 +14,10 @@ image = modal.Image.from_registry(
     timeout=7200,
     gpu=["L40S", "A100-40GB", "A10", "L4", "T4"],
     scaledown_window=60,
+    cpu=4.0,
+    memory=16 * 1024,
 )
-@modal.concurrent(max_inputs=32)
+@modal.concurrent(max_inputs=16)
 @modal.asgi_app(requires_proxy_auth=True)
 def docling_serve_fastapi_app_with_lifespan():
     web_app = create_app()
