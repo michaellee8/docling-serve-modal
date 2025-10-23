@@ -14,8 +14,6 @@ image = modal.Image.from_registry(
     timeout=7200,
     gpu=["L40S", "A100-40GB", "A10", "L4", "T4"],
     scaledown_window=60,
-    enable_memory_snapshot=True,
-    experimental_options={"enable_gpu_snapshot": True},
 )
 @modal.concurrent(max_inputs=32)
 @modal.asgi_app(requires_proxy_auth=True)
