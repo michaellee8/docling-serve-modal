@@ -14,7 +14,7 @@ image = modal.Image.from_registry("quay.io/docling-project/docling-serve-cu128:v
     scaledown_window=60,
 )
 @modal.concurrent(max_inputs=32)
-@modal.asgi_app()
+@modal.asgi_app(requires_proxy_auth=True)
 def docling_serve_fastapi_app_with_lifespan():
     web_app = create_app()
     return web_app
