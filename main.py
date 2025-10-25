@@ -16,6 +16,7 @@ image = modal.Image.from_registry(
     scaledown_window=60,
     cpu=4.0,
     memory=16 * 1024,
+    env={"DOCLING_SERVE_MAX_SYNC_WAIT": "7100"},
 )
 @modal.concurrent(max_inputs=16)
 @modal.asgi_app(requires_proxy_auth=True)
