@@ -3,7 +3,7 @@
 ## Setup steps
 
 1. Run `uv sync`
-2. Setup a secret called `DOCLING_SERVER_API_KEY` with an environment variable called `DOCLING_SERVE_API_KEY` using a randomly generated key. Docs: https://modal.com/docs/guide/secrets
+2. Setup a secret called `DOCLING_SERVE_API_KEY` with an environment variable called `DOCLING_SERVE_API_KEY` using a randomly generated key. Docs: https://modal.com/docs/guide/secrets
 3. Setup proxy auth. Docs: https://modal.com/docs/guide/webhook-proxy-auth
 4. Deploy it run `uv run modal deploy main.py`
 
