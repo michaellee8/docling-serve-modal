@@ -34,3 +34,4 @@ curl -X "POST" \
 
 - L40S are selected for speed but it seems that even T4 would have worked.
 - Async api endpoints from docling-serve are not used since modal has builtin handling for request timeout, and serverless container may terminate before the job is finished, see https://modal.com/docs/guide/webhook-timeouts
+- Using Modal memory snapshots actually seems to make it slower.
